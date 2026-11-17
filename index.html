@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nalla Harshavardhan Reddy | AI Engineer</title>
+<meta name="description" content="AI Engineer building production voice AI and LLM systems. Built a multilingual voice agent that handles an average of 7,000 calls a day.">
+<style>
+:root{
+  --bg:#f7f8fb; --surface:#ffffff; --surface-2:#eef1f7;
+  --text:#14171f; --muted:#5a6272; --line:#d9dee8;
+  --accent:#1f4fd1; --accent-soft:#e3ebff; --accent-text:#1f4fd1;
+  --good:#127a52; --good-soft:#dff4ea;
+  --warn:#9a5b00; --warn-soft:#fdf0d9;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 4px 16px rgba(16,24,40,.06);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1117; --surface:#161b24; --surface-2:#1d2430;
+    --text:#e8ebf2; --muted:#9aa3b5; --line:#2a3242;
+    --accent:#6f97ff; --accent-soft:#1c2a4d; --accent-text:#9db8ff;
+    --good:#4cc79a; --good-soft:#143329;
+    --warn:#f0b35a; --warn-soft:#3a2a10;
+    --shadow:none; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1117; --surface:#161b24; --surface-2:#1d2430;
+  --text:#e8ebf2; --muted:#9aa3b5; --line:#2a3242;
+  --accent:#6f97ff; --accent-soft:#1c2a4d; --accent-text:#9db8ff;
+  --good:#4cc79a; --good-soft:#143329;
+  --warn:#f0b35a; --warn-soft:#3a2a10;
+  --shadow:none; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px;line-height:1.6;padding-inline:20px}
+a{color:var(--accent-text)}
+.wrap{max-width:1000px;margin:0 auto}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-inline:-20px;padding:10px 20px}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+nav .brand{font-weight:700;text-decoration:none;color:var(--text)}
+nav .links{display:flex;gap:18px;flex-wrap:wrap;font-size:.92rem}
+nav .links a{color:var(--muted);text-decoration:none}
+nav .links a:hover{color:var(--text)}
+
+header.hero{padding:64px 0 36px}
+.eyebrow{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--accent-text);background:var(--accent-soft);padding:4px 10px;border-radius:999px}
+h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:14px 0 8px;letter-spacing:-.01em}
+.role{font-size:clamp(1.1rem,2.5vw,1.35rem);color:var(--muted);margin:0 0 18px;font-weight:500}
+.lede{font-size:1.1rem;max-width:720px;margin:0 0 26px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;font-weight:600;
+  text-decoration:none;border:1px solid var(--line);color:var(--text);background:var(--surface);font-size:.95rem}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{filter:brightness(1.05)}
+.joining{margin-top:16px;font-size:.92rem;color:var(--good)}
+.joining b{font-weight:600}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:8px 0 56px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.stat .n{font-size:1.65rem;font-weight:700;line-height:1.2;font-variant-numeric:tabular-nums}
+.stat .l{color:var(--muted);font-size:.88rem;margin-top:4px}
+
+section{padding:8px 0 48px}
+h2{font-size:1.6rem;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 22px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow);margin-bottom:22px}
+.case-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.case h3{font-size:1.35rem;margin:0}
+.tag{font-size:.78rem;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.tag.live{color:var(--good);background:var(--good-soft)}
+.tag.done{color:var(--accent-text);background:var(--accent-soft)}
+.tag.built{color:var(--warn);background:var(--warn-soft)}
+.client{color:var(--muted);font-size:.93rem;margin:0 0 18px}
+.case h4{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:22px 0 8px}
+.case p{margin:0 0 10px}
+.case ul{margin:0;padding-left:20px}
+.case li{margin:0 0 6px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.decision{background:var(--surface-2);border-radius:12px;padding:14px 16px}
+.decision b{display:block;margin-bottom:4px}
+.decision span{color:var(--muted);font-size:.93rem}
+.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.result{border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.result .n{font-weight:700;font-size:1.2rem}
+.result .l{color:var(--muted);font-size:.85rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{font-size:.82rem;padding:3px 10px;border-radius:999px;background:var(--surface-2);color:var(--text);border:1px solid var(--line)}
+
+.diagram{overflow-x:auto;margin:6px 0 4px;border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:10px}
+.diagram svg{display:block;min-width:760px;width:100%;height:auto}
+.diagram .box{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.diagram .box.ai{fill:var(--accent-soft);stroke:var(--accent)}
+.diagram .box.hum{fill:var(--warn-soft);stroke:var(--warn)}
+.diagram .box.ok{fill:var(--good-soft);stroke:var(--good)}
+.diagram .t{fill:var(--text);font:600 13px "Segoe UI",system-ui,sans-serif}
+.diagram .s{fill:var(--muted);font:12px "Segoe UI",system-ui,sans-serif}
+.diagram .lab{fill:var(--muted);font:italic 11.5px "Segoe UI",system-ui,sans-serif}
+.diagram .ph{fill:var(--text);font:700 12px "Segoe UI",system-ui,sans-serif;letter-spacing:.06em}
+.diagram .ar{stroke:var(--muted);stroke-width:1.6;fill:none;marker-end:url(#arr)}
+.diagram .ar.d{stroke-dasharray:5 4}
+.diagram #arr path,.diagram #arr2 path{fill:var(--muted)}
+.cap{color:var(--muted);font-size:.85rem;margin:6px 0 0}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.skill b{display:block;margin-bottom:8px}
+
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:.92rem}
+footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.note{font-size:.85rem;margin-top:14px}
+@media (max-width:560px){ .case{padding:20px} header.hero{padding-top:40px} }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top">Harshavardhan Reddy</a>
+  <div class="links">
+    <a href="#voice">Voice AI</a><a href="#dtr">OCR</a><a href="#chatbot">Chatbot</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<div class="wrap" id="top">
+
+<header class="hero">
+  <span class="eyebrow">AI Engineer · Hyderabad, India</span>
+  <h1>Nalla Harshavardhan Reddy</h1>
+  <p class="role">Voice AI &amp; LLM Systems Engineer</p>
+  <p class="lede">I build production voice AI. My current system answers a state power utility's helpline 24/7 in <b>Telugu, Hindi and English</b>, handling <b>an average of 7,000 calls a day</b> on self-hosted models, with more than 90% of calls resolved without a human.</p>
+  <div class="btns">
+    <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Download resume</a>
+    <a class="btn" href="https://linkedin.com/in/harshavardhanreddynalla" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="mailto:harshareddy151103@gmail.com">Email me</a>
+  </div>
+  <p class="joining">● <b>Open to AI / Voice AI engineering roles</b> · can join within 15 days</p>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="n">7,000</div><div class="l">calls a day on average, 24/7</div></div>
+  <div class="stat"><div class="n">90%+</div><div class="l">calls resolved by AI, no human handoff</div></div>
+  <div class="stat"><div class="n">1.4 s</div><div class="l">end-to-end voice response latency</div></div>
+  <div class="stat"><div class="n">8 → 2 min</div><div class="l">average call resolution time</div></div>
+  <div class="stat"><div class="n">1M+</div><div class="l">nameplates digitised by OCR pipeline</div></div>
+</div>
+
+<!-- ============ CASE 1 ============ -->
+<section id="voice">
+  <h2>Case studies</h2>
+  <p class="sub">Production systems I built at Vmax E-Solutions for TGSPDCL (Telangana Southern Power Distribution Company Limited).</p>
+
+  <article class="case">
+    <div class="case-head">
+      <h3>1912 Voice AI Helpline</h3>
+      <span class="tag live">● Live 24/7</span>
+    </div>
+    <p class="client">Multilingual voice agent for the 1912 electricity helpline · serves 12M+ consumers</p>
+
+    <h4>The problem</h4>
+    <p>The 1912 helpline handles power outages, billing questions and complaints for millions of consumers, many of whom speak only Telugu or Hindi and switch languages mid-sentence. Callers waited around 8 minutes for a resolution, and the line needed to work around the clock.</p>
+
+    <h4>Architecture</h4>
+    <div class="diagram" role="img" aria-label="Voice AI architecture: a caller connects through Asterisk telephony to a real-time pipeline of speech-to-text, a self-hosted LLM and text-to-speech. The LLM calls an integration gateway that reaches consumer, feeder status, billing and ticketing systems. Safety-critical calls go to a human agent.">
+      <svg viewBox="0 0 900 330" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker>
+        </defs>
+        <!-- caller & telephony -->
+        <rect class="box" x="10" y="40" width="110" height="64" rx="10"/>
+        <text class="t" x="65" y="68" text-anchor="middle">Caller</text>
+        <text class="s" x="65" y="86" text-anchor="middle">dials 1912</text>
+        <rect class="box" x="150" y="40" width="120" height="64" rx="10"/>
+        <text class="t" x="210" y="68" text-anchor="middle">Asterisk</text>
+        <text class="s" x="210" y="86" text-anchor="middle">telephony</text>
+        <path class="ar" d="M120,72 L148,72"/>
+        <!-- pipeline frame -->
+        <rect x="298" y="14" width="590" height="118" rx="12" fill="none" stroke="var(--line)" stroke-dasharray="4 4"/>
+        <text class="lab" x="310" y="30">Pipecat real-time pipeline · VAD, barge-in, speaker verification</text>
+        <rect class="box ai" x="312" y="44" width="170" height="74" rx="10"/>
+        <text class="t" x="397" y="68" text-anchor="middle">Speech-to-Text</text>
+        <text class="s" x="397" y="86" text-anchor="middle">Whisper Large v3</text>
+        <text class="s" x="397" y="103" text-anchor="middle">+ Indic Conformer 600M</text>
+        <rect class="box ai" x="505" y="44" width="170" height="74" rx="10"/>
+        <text class="t" x="590" y="68" text-anchor="middle">LLM + tool calling</text>
+        <text class="s" x="590" y="86" text-anchor="middle">Gemma 4 31B (FP8)</text>
+        <text class="s" x="590" y="103" text-anchor="middle">vLLM · single H200</text>
+        <rect class="box ai" x="698" y="44" width="176" height="74" rx="10"/>
+        <text class="t" x="786" y="68" text-anchor="middle">Text-to-Speech</text>
+        <text class="s" x="786" y="86" text-anchor="middle">Piper · VibeVoice</text>
+        <text class="s" x="786" y="103" text-anchor="middle">IndicF5</text>
+        <path class="ar" d="M270,72 L310,72"/>
+        <path class="ar" d="M482,81 L503,81"/>
+        <path class="ar" d="M675,81 L696,81"/>
+        <!-- audio back to caller -->
+        <path class="ar" d="M786,132 L786,150 L65,150 L65,106"/>
+        <text class="lab" x="420" y="145" text-anchor="middle">spoken reply in the caller's language</text>
+        <!-- gateway -->
+        <path class="ar" d="M590,118 L590,186"/>
+        <text class="lab" x="598" y="175">tool calls</text>
+        <rect class="box" x="470" y="188" width="240" height="56" rx="10"/>
+        <text class="t" x="590" y="212" text-anchor="middle">Integration gateway</text>
+        <text class="s" x="590" y="230" text-anchor="middle">17 functions · circuit breaker</text>
+        <!-- backends -->
+        <rect class="box" x="300" y="270" width="130" height="44" rx="8"/>
+        <text class="s" x="365" y="297" text-anchor="middle">Consumer lookup</text>
+        <rect class="box" x="445" y="270" width="140" height="44" rx="8"/>
+        <text class="s" x="515" y="297" text-anchor="middle">Feeder status (SOAP)</text>
+        <rect class="box" x="600" y="270" width="110" height="44" rx="8"/>
+        <text class="s" x="655" y="297" text-anchor="middle">Billing</text>
+        <rect class="box" x="725" y="270" width="150" height="44" rx="8"/>
+        <text class="s" x="800" y="297" text-anchor="middle">Complaint ticketing</text>
+        <path class="ar" d="M520,244 L380,268"/>
+        <path class="ar" d="M560,244 L520,268"/>
+        <path class="ar" d="M620,244 L650,268"/>
+        <path class="ar" d="M670,244 L790,268"/>
+        <!-- human -->
+        <rect class="box hum" x="40" y="200" width="200" height="64" rx="10"/>
+        <text class="t" x="140" y="226" text-anchor="middle">Human agent</text>
+        <text class="s" x="140" y="244" text-anchor="middle">safety intents · on request</text>
+        <path class="ar d" d="M505,110 C420,180 330,222 242,230"/>
+        <text class="lab" x="330" y="200">5–10% transferred</text>
+      </svg>
+    </div>
+    <p class="cap">Everything runs on-premise. No call audio or consumer data leaves the client's infrastructure.</p>
+
+    <h4>Key engineering decisions</h4>
+    <div class="grid2">
+      <div class="decision"><b>Two speech models, routed by language</b><span>Whisper for English, an Indic Conformer for Telugu and Hindi, with debounced language detection so callers can switch language mid-call.</span></div>
+      <div class="decision"><b>Self-hosted LLM on one GPU</b><span>FP8-quantised Gemma 4 31B served with vLLM keeps latency at 1.4 s and avoids per-call API costs and data leaving the premises.</span></div>
+      <div class="decision"><b>Humans for safety, by design</b><span>Fallen wires, shocks and fire risk skip the bot and go straight to a person, with non-interruptible critical messages.</span></div>
+      <div class="decision"><b>Real-world conversation control</b><span>Loop detection (n-gram + cosine similarity), silence handling, barge-in, speaker verification and spoken-digit capture of consumer numbers.</span></div>
+    </div>
+
+    <h4>Quality &amp; reliability</h4>
+    <ul>
+      <li><b>Automated evaluation suite:</b> scripted multi-turn test calls graded by an LLM-as-judge, so prompt and flow changes are checked before release.</li>
+      <li><b>Release gate and canary checks:</b> deploys are blocked on new test failures, and new versions must match the old version's P95 latency before full rollout.</li>
+      <li><b>Resilience:</b> circuit breaker on backend APIs and automatic LLM failover.</li>
+      <li><b>Continuous improvement:</b> I review real call transcripts to find unhandled intents and ship prompt, flow and routing fixes.</li>
+    </ul>
+
+    <h4>Results</h4>
+    <div class="results">
+      <div class="result"><div class="n">80 → 7,000</div><div class="l">calls/day, pilot to full scale</div></div>
+      <div class="result"><div class="n">90%+</div><div class="l">resolved without a human</div></div>
+      <div class="result"><div class="n">22 / 50</div><div class="l">peak concurrent calls / load-tested</div></div>
+      <div class="result"><div class="n">1,000+</div><div class="l">duplicate outage tickets prevented</div></div>
+      <div class="result"><div class="n">29</div><div class="l">intents in 3 languages</div></div>
+    </div>
+
+    <h4>Stack</h4>
+    <div class="chips">
+      <span class="chip">Pipecat</span><span class="chip">Pipecat Flows</span><span class="chip">vLLM</span><span class="chip">Gemma 4 31B</span><span class="chip">Whisper</span><span class="chip">Indic Conformer</span><span class="chip">Piper</span><span class="chip">VibeVoice</span><span class="chip">IndicF5</span><span class="chip">Asterisk</span><span class="chip">Redis</span><span class="chip">FastAPI</span><span class="chip">Docker Compose</span>
+    </div>
+  </article>
+</section>
+
+<!-- ============ CASE 2 ============ -->
+<section id="dtr">
+  <article class="case">
+    <div class="case-head">
+      <h3>DTR Nameplate OCR</h3>
+      <span class="tag done">● 1M+ nameplates processed</span>
+    </div>
+    <p class="client">Extracting transformer data from field photos for a state-wide survey</p>
+
+    <h4>The problem</h4>
+    <p>Field teams photographed the nameplates of more than a million distribution transformers. Each nameplate's serial number, capacity, currents, manufacturer and dates had to be entered into a database, and the photos were often blurred, angled or badly lit.</p>
+
+    <h4>Two phases, two architectures</h4>
+    <div class="diagram" role="img" aria-label="Phase 1: photos go to Gemini 2.5 Flash vision for single-pass extraction on GCP, scaled to 16 CPU instances. Phase 2: photos are enhanced with OpenCV, read with PaddleOCR, grouped into rows, then structured by the self-hosted Gemma 4 31B, fully on-premise.">
+      <svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"/></marker>
+        </defs>
+        <style>.diagram .ar2{stroke:var(--muted);stroke-width:1.6;fill:none;marker-end:url(#arr2)}</style>
+        <text class="ph" x="12" y="24">PHASE 1 · PEAK SURVEY (6 MONTHS) · GCP</text>
+        <rect class="box" x="12" y="38" width="140" height="62" rx="10"/>
+        <text class="t" x="82" y="65" text-anchor="middle">Field photo</text>
+        <text class="s" x="82" y="83" text-anchor="middle">via survey app</text>
+        <rect class="box" x="190" y="38" width="170" height="62" rx="10"/>
+        <text class="t" x="275" y="65" text-anchor="middle">Redis job queue</text>
+        <text class="s" x="275" y="83" text-anchor="middle">16 CPU instances</text>
+        <rect class="box ai" x="398" y="38" width="250" height="62" rx="10"/>
+        <text class="t" x="523" y="65" text-anchor="middle">Gemini 2.5 Flash vision</text>
+        <text class="s" x="523" y="83" text-anchor="middle">single-pass image → fields</text>
+        <rect class="box ok" x="686" y="38" width="200" height="62" rx="10"/>
+        <text class="t" x="786" y="65" text-anchor="middle">8 validated fields</text>
+        <text class="s" x="786" y="83" text-anchor="middle">JSON to database</text>
+        <path class="ar2" d="M152,69 L188,69"/><path class="ar2" d="M360,69 L396,69"/><path class="ar2" d="M648,69 L684,69"/>
+
+        <text class="ph" x="12" y="148">PHASE 2 · LOWER VOLUME · FULLY ON-PREMISE</text>
+        <rect class="box" x="12" y="162" width="140" height="62" rx="10"/>
+        <text class="t" x="82" y="189" text-anchor="middle">Field photo</text>
+        <text class="s" x="82" y="207" text-anchor="middle">via survey app</text>
+        <rect class="box" x="180" y="162" width="150" height="62" rx="10"/>
+        <text class="t" x="255" y="189" text-anchor="middle">OpenCV</text>
+        <text class="s" x="255" y="207" text-anchor="middle">contrast · upscale</text>
+        <rect class="box ai" x="358" y="162" width="160" height="62" rx="10"/>
+        <text class="t" x="438" y="189" text-anchor="middle">PaddleOCR</text>
+        <text class="s" x="438" y="207" text-anchor="middle">+ row grouping</text>
+        <rect class="box ai" x="546" y="162" width="160" height="62" rx="10"/>
+        <text class="t" x="626" y="189" text-anchor="middle">Gemma 4 31B</text>
+        <text class="s" x="626" y="207" text-anchor="middle">shared with voice bot</text>
+        <rect class="box ok" x="734" y="162" width="152" height="62" rx="10"/>
+        <text class="t" x="810" y="189" text-anchor="middle">8 validated fields</text>
+        <text class="s" x="810" y="207" text-anchor="middle">zero cloud / API cost</text>
+        <path class="ar2" d="M152,193 L178,193"/><path class="ar2" d="M330,193 L356,193"/><path class="ar2" d="M518,193 L544,193"/><path class="ar2" d="M706,193 L732,193"/>
+      </svg>
+    </div>
+
+    <h4>Why the architecture changed</h4>
+    <div class="grid2">
+      <div class="decision"><b>Phase 1: optimise for speed</b><span>During the peak field survey, a single-pass vision model on GCP, scaled out to 16 CPU instances, was the fastest way to keep up with incoming photos.</span></div>
+      <div class="decision"><b>Phase 2: optimise for cost</b><span>Once volume dropped, paying per image no longer made sense. I moved reading to PaddleOCR and structuring to the Gemma 4 model we already ran for the voice bot.</span></div>
+    </div>
+
+    <h4>Results</h4>
+    <div class="results">
+      <div class="result"><div class="n">1M+</div><div class="l">nameplates extracted</div></div>
+      <div class="result"><div class="n">20,000 h</div><div class="l">manual entry saved (est.)</div></div>
+      <div class="result"><div class="n">16</div><div class="l">CPU instances at peak</div></div>
+      <div class="result"><div class="n">₹0</div><div class="l">cloud / API cost after Phase 2</div></div>
+    </div>
+
+    <h4>Stack</h4>
+    <div class="chips">
+      <span class="chip">FastAPI</span><span class="chip">Gemini 2.5 Flash</span><span class="chip">PaddleOCR</span><span class="chip">Gemma 4 31B</span><span class="chip">OpenCV</span><span class="chip">Redis</span><span class="chip">GCP</span>
+    </div>
+  </article>
+</section>
+
+<!-- ============ CASE 3 ============ -->
+<section id="chatbot">
+  <article class="case">
+    <div class="case-head">
+      <h3>AI WhatsApp Chatbot</h3>
+      <span class="tag built">● Built</span>
+    </div>
+    <p class="client">Self-service bills, outages and complaints over WhatsApp</p>
+
+    <h4>Approach</h4>
+    <div class="grid2">
+      <div class="decision"><b>Hybrid deterministic + LLM</b><span>Yes/no confirmations and complaint steps run as plain code for reliability. Only open-ended questions go to Qwen3-32B.</span></div>
+      <div class="decision"><b>LLM decides, backend executes</b><span>The model emits structured API-call instructions that the backend runs against 6 systems: consumer, billing, feeder status and ticketing.</span></div>
+    </div>
+    <ul style="margin-top:14px">
+      <li>Stateful multi-turn conversations on Redis, with a 30-minute sliding expiry and per-user request locking.</li>
+    </ul>
+
+    <h4>Stack</h4>
+    <div class="chips">
+      <span class="chip">FastAPI</span><span class="chip">Qwen3-32B</span><span class="chip">Redis</span><span class="chip">SOAP (Zeep)</span><span class="chip">REST</span><span class="chip">WhatsApp Business API</span>
+    </div>
+  </article>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <h2>Skills</h2>
+  <p class="sub">What I use in production every day.</p>
+  <div class="skills">
+    <div class="skill"><b>Speech-to-Text (STT / ASR)</b><div class="chips"><span class="chip">Whisper Large v3</span><span class="chip">Indic Conformer</span><span class="chip">Language detection &amp; routing</span></div></div>
+    <div class="skill"><b>Text-to-Speech (TTS)</b><div class="chips"><span class="chip">Piper</span><span class="chip">VibeVoice</span><span class="chip">IndicF5</span><span class="chip">Multi-engine switching</span></div></div>
+    <div class="skill"><b>Voice AI</b><div class="chips"><span class="chip">Pipecat</span><span class="chip">Pipecat Flows</span><span class="chip">VAD</span><span class="chip">Speaker verification</span><span class="chip">Barge-in</span><span class="chip">Asterisk</span><span class="chip">Twilio</span></div></div>
+    <div class="skill"><b>LLMs</b><div class="chips"><span class="chip">Tool calling</span><span class="chip">Prompt &amp; context engineering</span><span class="chip">Multilingual prompting</span><span class="chip">LLM-as-judge evaluation</span><span class="chip">Gemma 4</span><span class="chip">Qwen3</span><span class="chip">Gemini</span></div></div>
+    <div class="skill"><b>Backend &amp; Infra</b><div class="chips"><span class="chip">Python (asyncio)</span><span class="chip">FastAPI</span><span class="chip">REST</span><span class="chip">SOAP</span><span class="chip">WebSockets</span><span class="chip">Redis</span><span class="chip">vLLM</span><span class="chip">Docker Compose</span><span class="chip">GCP</span></div></div>
+    <div class="skill"><b>Vision &amp; OCR</b><div class="chips"><span class="chip">PaddleOCR</span><span class="chip">OpenCV</span><span class="chip">Vision LLMs</span></div></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="row">
+    <div>
+      <b style="color:var(--text)">Let's talk</b><br>
+      Open to AI / Voice AI engineering roles · can join within 15 days<br>
+      <a href="mailto:harshareddy151103@gmail.com">harshareddy151103@gmail.com</a> ·
+      <a href="https://linkedin.com/in/harshavardhanreddynalla" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+    <div>B.Tech, Computer Science (AI &amp; ML)<br>Malla Reddy Engineering College, 2025</div>
+  </div>
+  <p class="note">Client code is proprietary. These case studies describe architecture and results only; no code, prompts, call recordings or consumer data are shared.</p>
+</footer>
+
+</div>
+</body>
+</html>
